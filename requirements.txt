@@ -1,2 +1,6 @@
 python-dotenv
 google.generativeai
+langchain-google-genai
+langchain-community
+chromadb
+langchain-chroma
