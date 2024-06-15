@@ -24,7 +24,7 @@ text=st.text_input("Leave your query based on LLM")
 if st.button("Search"):
     embedding_model = GoogleGenerativeAIEmbeddings(google_api_key="AIzaSyAbjdm8WqCNMjNfARjwI1ODNQD_0mfTzPE",model="models/embedding-001")
     chat_model = ChatGoogleGenerativeAI(google_api_key="AIzaSyAbjdm8WqCNMjNfARjwI1ODNQD_0mfTzPE",model="gemini-1.5-pro-latest")
-    db_connection = Chroma(persist_directory="./chroma_db_", embedding_function=embedding_model)
+    db_connection = Chroma.from_documents(persist_directory="./chroma_db_", embedding_function=embedding_model)
     output_parser = StrOutputParser()
     def format_docs(docs):
         return "\n\n".join(doc.page_content for doc in docs)
